@@ -1,0 +1,34 @@
+server:
+  port: 8002
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/coursebooking
+    username: ringle_task
+    password: ringleplus*
+    driver-class-name: org.postgresql.Driver
+  application:
+    name: course-booking
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        default_batch_fetch_size: 100
+        format_sql: true
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 50MB
+      max-request-size: 50MB
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+    cache: false
+logging:
+  level:
+    org.hibernate.SQL: debug
+    feign: DEBUG
